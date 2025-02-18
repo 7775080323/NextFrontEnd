@@ -2,11 +2,10 @@
 // import ConversationsList from "./ConversationsList"
 // import Search from "./Search"
 import Toggle from "./Toggle"
-import classNames from "classnames"
 import { ToggleProps } from "@/types"
 type PropTypes = ToggleProps
 
-const Conversation = ({sidebar, toggleSidebar}: PropTypes) => {
+const Conversation = ({toggleSidebar}: PropTypes) => {
   return (
     <div>
     
