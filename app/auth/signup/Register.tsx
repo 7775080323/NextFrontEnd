@@ -160,7 +160,7 @@ const Register = () => {
     }
 
     if (!/^\S+@\S+\.\S+$/.test(state.email)) {
-      return setErrorMessage("Invalid email format.");
+      return setErrorMessage("Invalid email format..");
     }
 
     if (state.password.length < 6) {
