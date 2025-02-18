@@ -160,7 +160,7 @@ import { FaPaperPlane, FaUserCircle, FaCheck, FaCheckDouble } from "react-icons/
 
 // const socket = io("http://localhost:5000");
 const socket = io(process.env.NEXT_PUBLIC_SOCKET as string, {
-  transports: ["websocket"],
+  transports: ["websocket","polling"],
 });
 
 interface Message {
