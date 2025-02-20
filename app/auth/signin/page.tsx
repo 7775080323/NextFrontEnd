@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 const Login = () => {
@@ -109,9 +110,9 @@ const Login = () => {
           </div>
 
           {/* Signup Link */}
-          <a href="/auth/signup" className="inline-block mt-4 text-zinc-400 font-semibold hover:text-white">
+          <Link href="/auth/signup" className="inline-block mt-4 text-zinc-400 font-semibold hover:text-white">
             Don&apos;t have an account?
-          </a>
+          </Link>
         </form>
       </div>
     </div>
