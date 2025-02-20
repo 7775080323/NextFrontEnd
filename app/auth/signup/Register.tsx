@@ -83,11 +83,10 @@
 
 // export default Register;
 
-
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const Register = () => {
@@ -104,14 +103,13 @@ const Register = () => {
     e.preventDefault();
     setErrorMessage(null);
 
+    // Basic validation
     if (!state.name || !state.email || !state.password) {
       return setErrorMessage("All fields are required.");
     }
-
     if (!/^\S+@\S+\.\S+$/.test(state.email)) {
       return setErrorMessage("Invalid email format.");
     }
-
     if (state.password.length < 6) {
       return setErrorMessage("Password must be at least 6 characters.");
     }
@@ -119,7 +117,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`https://nextbackend-d5ze.onrender.com/auth/signup`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Ensure cookies are sent
@@ -169,4 +167,3 @@ const Register = () => {
 };
 
 export default Register;
-
