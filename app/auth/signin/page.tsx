@@ -36,7 +36,7 @@ const Login = () => {
 
   
     try {
-      const response = await fetch("http://localhost:5000/api/user/login", {
+      const response = await fetch("https://next-front-esr3elw4d-manali-songires-projects.vercel.app/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -109,9 +109,9 @@ const Login = () => {
           </div>
 
           {/* Signup Link */}
-          <Link href="/auth/signup" className="inline-block mt-4 text-zinc-400 font-semibold hover:text-white">
+          <a href="/auth/signup" className="inline-block mt-4 text-zinc-400 font-semibold hover:text-white">
             Don&apos;t have an account?
-          </Link>
+          </a>
         </form>
       </div>
     </div>
