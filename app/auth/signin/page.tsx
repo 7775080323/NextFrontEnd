@@ -66,7 +66,11 @@ const Login = () => {
 
           {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
 
-          <Link href="/auth/signup" className="inline-block mt-4 text-zinc-400 font-semibold hover:text-white">Don't have an account? Sign up</Link>
+                <Link href="/auth/signup" className="inline-block mt-4 text-zinc-400 font-semibold hover:text-white">
+            {"Don't have an account? Sign up"}
+          </Link>
+
+
         </form>
       </div>
     </div>
