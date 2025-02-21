@@ -159,7 +159,7 @@ import io from "socket.io-client";
 import { FaPaperPlane, FaUserCircle, FaCheck, FaCheckDouble } from "react-icons/fa";
 
 // const socket = io("http://localhost:5000");
-const socket = io(process.env.NEXT_PUBLIC_SOCKET || "https://nextbackend-d5ze.onrender.com" ||process.env.NEXT_PUBLIC_API, {
+const socket = io(process.env.NEXT_PUBLIC_API, {
   transports: ["websocket"],
   withCredentials: true,
 });
