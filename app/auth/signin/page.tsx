@@ -25,7 +25,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/user/signin`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/user/auth/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Send cookies
