@@ -33,7 +33,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/signup`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/user/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Ensure cookies are sent
