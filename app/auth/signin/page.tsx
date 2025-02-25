@@ -3,6 +3,7 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import e from "cors";
 
 const Login = () => {
   const [state, setState] = useState({ email: "", password: "" });
@@ -15,15 +16,17 @@ const Login = () => {
   };
 
   const handleSubmit = async (e: FormEvent) => {
+
+    console.log("inside handlesubmit");
     e.preventDefault();
     setErrorMessage(null);
-
+  
     if (!state.email || !state.password) {
       return setErrorMessage("All fields are required.");
     }
-
+  
     setIsLoading(true);
-
+  
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/user/auth/signin`, {
         method: "POST",
@@ -31,17 +34,24 @@ const Login = () => {
         credentials: "include", // Send cookies
         body: JSON.stringify(state),
       });
-
+  
       const responseData = await response.json();
       console.log("📩 Server Response:", responseData);
-
+  
       if (!response.ok) {
         setErrorMessage(responseData.message || "Invalid credentials.");
         return;
       }
-
-      alert("✅ Login successful!");
-      router.push("/"); // Redirect to chat page
+  
+      // Extract token and store it in localStorage
+      if (responseData.token) {
+        localStorage.setItem("authToken", responseData.token);
+      } else {
+        throw new Error("Token not received.");
+      }
+  
+      // alert("✅ Login successful!");
+      router.replace("/"); // Redirect to chat page
     } catch (err) {
       setErrorMessage("Unexpected error occurred. Please try again.");
       console.error("❌ Login Error:", err);
@@ -49,6 +59,7 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <div className="flex">
